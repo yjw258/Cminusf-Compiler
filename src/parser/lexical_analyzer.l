@@ -23,45 +23,6 @@ void pass_node(char *text){
 %%
  /* to do for students */
  /* two cases for you, pass_node will send flex's token to bison */
-<<<<<<< HEAD
-
- /* keyword */
-else {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return ELSE;}
-if {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return IF;}
-int {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return INT;}
-return {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return RET;}
-void {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return VOID;}
-while {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return WHILE;}
-float {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return FLOAT;}
-
- /* special symbols*/
-"<="|">="|"<"|">"|"=="|"!=" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return RELOP;}
-"=" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return ASSIGN;}
-"+"|"-" {pos_start = pos_end; pos_end += 1; pass_node(yytext); return ADDOP;}
-";" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return SEM;}
-"," {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return COMMA;}
-"(" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return LPAREN;}
-")" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return RPAREN;}
-"[" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return LBRACK;}
-"]" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return RBRACK;}
-"{" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return LBRACE;}
-"}" {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return RBRACE;}
-\/\*([^\*])*((\*)+[^\*\/]([^\*])*)*(\*)*\*\/  {pos_start = pos_end; pos_end += strlen(yytext);}
-"*"|"/" {pos_start = pos_end; pos_end += 1; pass_node(yytext); return MULOP;}
-
- /* ID & NUM */
-[a-zA-Z]+ {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return ID;}
-[0-9]+\.|[0-9]*\.[0-9]+ {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return FLOATNUM;}
-[0-9]+ {pos_start = pos_end; pos_end += strlen(yytext); pass_node(yytext); return INTEGER;}
-
- /* other thing */
-\n {lines++; pos_start = pos_end = 0;}
-" "|\t {pos_end++;}
-. { pos_start = pos_end; pos_end++; return ERROR; }
-
- /****请在此补全所有flex的模式与动作  end******/
-%%
-=======
  /* special symbols*/
 \+ 	{pos_start = pos_end; pos_end += 1; pass_node(yytext); return ADD;}
 \-   {pos_start = pos_end; pos_end += 1; pass_node(yytext); return SUB;}
@@ -122,4 +83,3 @@ float     {pos_start = pos_end; pos_end += 5; pass_node(yytext); return FLOAT;}
 
  /****请在此补全所有flex的模式与动作  end******/
 %%
->>>>>>> c7f1069 (commit all)

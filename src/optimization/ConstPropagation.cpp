@@ -1,10 +1,7 @@
 #include "ConstPropagation.hpp"
 #include "logging.hpp"
-<<<<<<< HEAD
-=======
 #include <algorithm>
 #define IS_GLOBAL_VARIABLE(l_val) dynamic_cast<GlobalVariable *>(l_val)
->>>>>>> c7f1069 (commit all)
 
 // 给出了返回整形值的常数折叠实现，大家可以参考，在此基础上拓展
 // 当然如果同学们有更好的方式，不强求使用下面这种方式
@@ -13,20 +10,12 @@ ConstantInt *ConstFolder::compute(
     ConstantInt *value1,
     ConstantInt *value2)
 {
-<<<<<<< HEAD
-
-=======
->>>>>>> c7f1069 (commit all)
     int c_value1 = value1->get_value();
     int c_value2 = value2->get_value();
     switch (op)
     {
     case Instruction::add:
         return ConstantInt::get(c_value1 + c_value2, module_);
-<<<<<<< HEAD
-
-=======
->>>>>>> c7f1069 (commit all)
         break;
     case Instruction::sub:
         return ConstantInt::get(c_value1 - c_value2, module_);
@@ -43,8 +32,6 @@ ConstantInt *ConstFolder::compute(
     }
 }
 
-<<<<<<< HEAD
-=======
 // fold float point number
 ConstantFP *ConstFolder::computeFP(
     Instruction::OpID op,
@@ -164,7 +151,6 @@ Constant *ConstFolder::computeFcmp(
         break;
     }
 }
->>>>>>> c7f1069 (commit all)
 // 用来判断value是否为ConstantFP，如果不是则会返回nullptr
 ConstantFP *cast_constantfp(Value *value)
 {
@@ -178,11 +164,8 @@ ConstantFP *cast_constantfp(Value *value)
         return nullptr;
     }
 }
-<<<<<<< HEAD
-=======
 
 // 用来判断value是否为ConstantInt，如果不是则会返回nullptr
->>>>>>> c7f1069 (commit all)
 ConstantInt *cast_constantint(Value *value)
 {
     auto constant_int_ptr = dynamic_cast<ConstantInt *>(value);
@@ -196,8 +179,6 @@ ConstantInt *cast_constantint(Value *value)
     }
 }
 
-<<<<<<< HEAD
-=======
 // a const propagation to compute const and delete useless code
 void ConstPropagation::CPpass(BasicBlock *bb)
 {
@@ -393,13 +374,10 @@ void ConstPropagation::CPpass(BasicBlock *bb)
         }
     }
 }
->>>>>>> c7f1069 (commit all)
 
 void ConstPropagation::run()
 {
     // 从这里开始吧！
-<<<<<<< HEAD
-=======
     for (auto func : m_->get_functions())
     {
         if (func->get_num_basic_blocks() == 0)
@@ -407,5 +385,4 @@ void ConstPropagation::run()
         auto entry_bb = func->get_entry_block();
         CPpass(entry_bb);
     }
->>>>>>> c7f1069 (commit all)
 }

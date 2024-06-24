@@ -10,9 +10,6 @@ void LoopInvHoist::run()
     loop_searcher.run();
 
     // 接下来由你来补充啦！
-<<<<<<< HEAD
-}
-=======
     auto func_list = m_->get_functions();
     for (auto func : func_list)
     {
@@ -101,4 +98,3 @@ void LoopInvHoist::run()
     }
 }
 
->>>>>>> c7f1069 (commit all)
